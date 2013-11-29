@@ -3,40 +3,9 @@
     src: url("http://panic.com/fonts/Roadgeek 2005 Series D/Roadgeek 2005 Series D.otf");
 }
 
-html, body, #main {
-    overflow: hidden; /* */
-    background: transparent !important;
-}
-
 body {
     color: white;
     font-family: 'Roadgeek2005SeriesD', sans-serif;
-    font-size: 20px;
-    line-height: 24px;
-}
-
-#container {
-    position: relative;
-}
-
-h1 {
-    font-size: 120px;
-    line-height: 120px;
-    margin-top: 15px;
-    margin-bottom: 28px;
-    color: white;
-    text-shadow:0px -2px 0px black;
-    text-transform: uppercase;
-}
-
-h2 {
-    width: 180px;
-    margin: 0px auto;
-    padding-top: 20px;
-    font-size: 16px;
-    line-height: 18px;
-    color: #7e7e7e;
-    text-transform: uppercase;
 }
 
 h3#bridge-info {
