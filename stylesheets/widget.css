@@ -16,25 +16,19 @@ h3#bridge-info {
 
 .button {
     width: 100%;
-    margin-bottom: 10px;
+    height: 40%;
 
-    font-size:1.5em;
-    font-weight:bold;
-    font-style:normal;
-    height:3em;
-    line-height: 2.9em;
+    margin-bottom: 15px;
 
-    padding-top: 5px;
+    font-size: 45px;
+    font-weight: bold;
+    line-height: 97px;
 
-    text-decoration:none;
-    text-align:center;
-    display:inline-block;
-    text-indent:0;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
 
-    border-top-left-radius:20px;
-    border-top-right-radius:20px;
-    border-bottom-right-radius:20px;
-    border-bottom-left-radius:20px;
+    border-radius: 8px;
 }
 
 .on {
