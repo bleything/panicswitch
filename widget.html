@@ -1,0 +1,138 @@
+<html>
+  <head>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+      var bridge_url, lights;
+
+      $(document).ready(function() {
+        $.getJSON("http://www.meethue.com/api/nupnp", function(d) {
+          bridge_ip = d[0]['internalipaddress'];
+          bridge_url = "http://" + bridge_ip + "/api/panicswitch"
+
+          $.getJSON(bridge_url + "/lights", function(d) {
+            lights = d;
+            console.log(lights)
+
+            $("h3#bridge-info").text(bridge_ip + " | " + Object.keys(lights).length + " lights");
+          });
+        });
+
+        $(".on").click(function() {
+          $.ajax(bridge_url + "/groups/0/action", {
+            "type": "PUT",
+            "data": '{"on":true}',
+          });
+          console.log("on");
+        })
+
+        $(".off").click(function() {
+          $.ajax(bridge_url + "/groups/0/action", {
+            "type": "PUT",
+            "data": '{"on":false}',
+          });
+          console.log("off");
+        })
+      })
+    </script>
+
+    <!-- mostly stolen from https://panic.com/statusboard/modules/spacepeople/index.html -->
+    <style>
+      @font-face {
+        font-family: "Roadgeek2005SeriesD";
+        src: url("http://panic.com/fonts/Roadgeek 2005 Series D/Roadgeek 2005 Series D.otf");
+      }
+
+      /* Settin' up the page */
+      html, body, #main {
+        overflow: hidden; /* */
+        background: transparent !important;
+      }
+
+      body {
+        color: white;
+        font-family: 'Roadgeek2005SeriesD', sans-serif;
+        font-size: 20px;
+        line-height: 24px;
+      }
+
+      #container {
+        position: relative;
+      }
+
+      h1 {
+        font-size: 120px;
+        line-height: 120px;
+        margin-top: 15px;
+        margin-bottom: 28px;
+        color: white;
+        text-shadow:0px -2px 0px black;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        width: 180px;
+        margin: 0px auto;
+        padding-top: 20px;
+        font-size: 16px;
+        line-height: 18px;
+        color: #7e7e7e;
+        text-transform: uppercase;
+      }
+
+      h3#bridge-info {
+        font-size: 0.4em;
+        width: 100%;
+        color: #7e7e7e;
+        text-align: center;
+      }
+
+      .button {
+        width: 100%;
+        margin-bottom: 10px;
+
+        font-size:1.5em;
+        font-weight:bold;
+        font-style:normal;
+        height:3em;
+        line-height: 2.9em;
+
+        padding-top: 5px;
+
+        text-decoration:none;
+        text-align:center;
+        display:inline-block;
+        text-indent:0;
+
+        border-top-left-radius:20px;
+        border-top-right-radius:20px;
+        border-bottom-right-radius:20px;
+        border-bottom-left-radius:20px;
+      }
+
+      .on {
+        box-shadow:inset 0px 1px 0px 0px #caefab;
+        background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #77d42a), color-stop(1, #5cb811) );
+        background-color:#77d42a;
+        border:1px solid #268a16;
+        color:#306108;
+        text-shadow:1px 1px 0px #aade7c;
+      }
+
+      .off {
+        box-shadow:inset 0px 1px 0px 0px #f29c93;
+        background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fe1a00), color-stop(1, #ce0100) );
+        background-color:#fe1a00;
+        border:1px solid #d83526;
+        color:#ffffff;
+        text-shadow:1px 1px 0px #b23e35;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <a href="#" class="button on">On</a>
+      <a href="#" class="button off">Off</a>
+      <h3 id="bridge-info"></h3>
+    </div>
+  </body>
+</html>
