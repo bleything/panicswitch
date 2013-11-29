@@ -40,8 +40,12 @@ h3#bridge-info {
 
 .on {
     box-shadow:inset 0px 1px 0px 0px #caefab;
-    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #77d42a), color-stop(1, #5cb811) );
-    background-color:#77d42a;
+    background:-webkit-gradient(
+        linear, left top, left bottom,
+        color-stop(0.05, #00c200),
+        color-stop(1, #009200)
+    );
+    background-color:#00c200;
     border:1px solid #268a16;
     color:#306108;
     text-shadow:1px 1px 0px #aade7c;
@@ -49,9 +53,13 @@ h3#bridge-info {
 
 .off {
     box-shadow:inset 0px 1px 0px 0px #f29c93;
-    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fe1a00), color-stop(1, #ce0100) );
-    background-color:#fe1a00;
+    background:-webkit-gradient(
+        linear, left top, left bottom,
+        color-stop(0.05, #ff4900),
+        color-stop(1, #ce0100)
+    );
+    background-color:#ff4900;
     border:1px solid #d83526;
-    color:#ffffff;
+    color:white;
     text-shadow:1px 1px 0px #b23e35;
 }
