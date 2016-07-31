@@ -36,7 +36,7 @@ factory reset your bridge.
 ```
 
 Next, set up Status Board. Add a Do-It-Yourself widget and set the Panel URL to
-https://bleything.github.io/panicswitch/widget.html?username=your-username
+http://bleything.github.io/panicswitch/widget.html?username=your-username-from-before
 
 All done!
 
