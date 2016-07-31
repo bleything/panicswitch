@@ -18,14 +18,25 @@ factory reset your bridge.
 * Use the CLIP interface to `POST` the following JSON to `/api`:
 
 ```json
-{"devicetype": "Panic Switch", "username": "panicswitch"}
+{"devicetype": "Panic Switch"}
 ```
 
 * You should see an error saying `link button not pressed`. Push the link button
-  on your bridge and submit the `POST` again. You should see a success message.
+  on your bridge and submit the `POST` again. You should see a success message
+  that includes a username:
+
+```json
+[
+  {
+    "success": {
+      "username": "zg0uAT9k1PaZ3Q89ocQlJhDDLeBTtFDAMKdVhqaI"
+    }
+  }
+]
+```
 
 Next, set up Status Board. Add a Do-It-Yourself widget and set the Panel URL to
-http://bleything.github.io/panicswitch/widget.html
+https://bleything.github.io/panicswitch/widget.html?username=your-username
 
 All done!
 

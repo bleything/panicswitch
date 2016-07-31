@@ -6,12 +6,18 @@
 
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script type="text/javascript">
-      var bridge_url, lights;
+      var bridge_url, lights, username;
+
+      var regexp = new RegExp("username=([a-zA-Z0-9_-]+)");
 
       $(document).ready(function() {
+        username = regexp.exec(window.location.href)[1];
+        console.log(username);
+
         $.getJSON("https://www.meethue.com/api/nupnp", function(d) {
           bridge_ip = d[0]['internalipaddress'];
-          bridge_url = "http://" + bridge_ip + "/api/panicswitch"
+          bridge_url = "http://" + bridge_ip + "/api/" + username;
+          console.log(bridge_url);
 
           $.getJSON(bridge_url + "/lights", function(d) {
             lights = d;
