@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Panic Switch by bleything</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="javascripts/respond.js"></script>
     <!--[if lt IE 9]>
@@ -38,12 +38,15 @@
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
         </div>
 
-        <p>Ever thought to yourself "dang, I wish I could control my light bulbs from
+        <h1>
+<a id="panic-switch" class="anchor" href="#panic-switch" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Panic Switch</h1>
+
+<p>Ever thought to yourself "dang, I wish I could control my light bulbs from
 Panic's Status Board app"? Good news! Panic Switch is a widget for Panic's
 <a href="https://panic.com/statusboard/">Status Board</a> app that controls your <a href="https://meethue.com">Philips Hue</a> lights.</p>
 
 <h3>
-<a name="how-do" class="anchor" href="#how-do"><span class="octicon octicon-link"></span></a>How Do?</h3>
+<a id="how-do" class="anchor" href="#how-do" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How Do?</h3>
 
 <p>First we need to create the Panic Switch user on your Hue bridge. This is a
 one-time operation that will not need to be repeated unless you replace or
@@ -53,41 +56,28 @@ factory reset your bridge.</p>
 <li>Go to <a href="http://www.meethue.com/api/nupnp">http://www.meethue.com/api/nupnp</a> and note the IP address of your bridge</li>
 <li>Go to http://BRIDGE_IP/debug/clip.html</li>
 <li>Use the CLIP interface to <code>POST</code> the following JSON to <code>/api</code>:</li>
-</ul><div class="highlight highlight-json"><pre><span class="p">{</span><span class="nt">"devicetype"</span><span class="p">:</span> <span class="s2">"Panic Switch"</span><span class="p">,</span> <span class="nt">"username"</span><span class="p">:</span> <span class="s2">"panicswitch"</span><span class="p">}</span>
-</pre></div>
+</ul>
+
+<div class="highlight highlight-source-json"><pre>{<span class="pl-s"><span class="pl-pds">"</span>devicetype<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>Panic Switch<span class="pl-pds">"</span></span>}</pre></div>
 
 <ul>
 <li>You should see an error saying <code>link button not pressed</code>. Push the link button
-on your bridge and submit the <code>POST</code> again. You should see a success message.</li>
-</ul><p>Next, set up Status Board. Add a Do-It-Yourself widget and set the Panel URL to
-<a href="http://bleything.github.io/panicswitch/widget.html">http://bleything.github.io/panicswitch/widget.html</a></p>
+on your bridge and submit the <code>POST</code> again. You should see a success message
+that includes a username:</li>
+</ul>
+
+<div class="highlight highlight-source-json"><pre>[
+  {
+    <span class="pl-s"><span class="pl-pds">"</span>success<span class="pl-pds">"</span></span>: {
+      <span class="pl-s"><span class="pl-pds">"</span>username<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>zg0uAT9k1PaZ3Q89ocQlJhDDLeBTtFDAMKdVhqaI<span class="pl-pds">"</span></span>
+    }
+  }
+]</pre></div>
+
+<p>Next, set up Status Board. Add a Do-It-Yourself widget and set the Panel URL to
+<a href="http://bleything.github.io/panicswitch/widget.html?username=your-username-from-before">http://bleything.github.io/panicswitch/widget.html?username=your-username-from-before</a></p>
 
 <p>All done!</p>
-
-<h3>
-<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
-
-<p>(The MIT License)</p>
-
-<p>Copyright (c) 2013 <a href="mailto:ben@bleything.net">Ben Bleything</a></p>
-
-<p>Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:</p>
-
-<p>The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.</p>
-
-<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.</p>
       </section>
 
     </div>
